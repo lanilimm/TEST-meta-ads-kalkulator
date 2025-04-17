@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalkulator Meta Ads v4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      color: #F2A516;
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #F2A516;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .result {
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: #F2A516;">Kalkulator Meta Ads v4</h1>
+
+  <label for="category">Kategoria:</label>
+  <select id="category"></select>
+
+  <label for="goal">Cel kampanii:</label>
+  <select id="goal" onchange="adjustAttributionOptions()"></select>
+
+  <label for="attribution">Model atrybucji:</label>
+  <select id="attribution"></select>
+
+  <label for="budget">Budżet całkowity (PLN):</label>
+  <input type="number" id="budget" min="1" />
+
+  <label for="start">Data startu kampanii:</label>
+  <input type="date" id="start" />
+
+  <label for="end">Data końca kampanii:</label>
+  <input type="date" id="end" />
+
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+    <button onclick="calculate()">Oblicz</button>
+    <button onclick="copyResult()">📋 Kopiuj wynik</button>
+    <button onclick="resetForm()">🧹 Resetuj</button>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    let dataset = [];
+
+    async function loadData() {
+      const res = await fetch('benchmarki.json');
+      dataset = await res.json();
+
+      const categorySet = new Set(dataset.filter(d => d.kategoria).map(d => d.kategoria));
+      const goalSet = new Set(dataset.map(d => d.cel));
+      const attrSet = new Set(dataset.map(d => d.atrybucja));
+
+      populateSelect("category", categorySet);
+      populateSelect("goal", goalSet);
+      populateSelect("attribution", attrSet);
+    }
+
+    function populateSelect(id, set) {
+      const select = document.getElementById(id);
+      select.innerHTML = "";
+      [...set].sort().forEach(value => {
+        const opt = document.createElement("option");
+        opt.value = value;
+        opt.textContent = value;
+        select.appendChild(opt);
+      });
+    }
+
+    function adjustAttributionOptions() {
+      const goal = document.getElementById("goal").value;
+      const attrSelect = document.getElementById("attribution");
+
+      if (goal === "LINK_CLICKS" || goal === "OUTCOME_AWARENESS") {
+        attrSelect.innerHTML = '<option value="7d_click">7d_click</option>';
+        attrSelect.disabled = true;
+      } else {
+        const attrSet = new Set(dataset.map(d => d.atrybucja));
+        populateSelect("attribution", attrSet);
+        attrSelect.disabled = false;
+      }
+    }
+
+    function getDays(start, end) {
+      const s = new Date(start);
+      const e = new Date(end);
+      return (e - s) / (1000 * 3600 * 24) + 1;
+    }
+
+    function copyResult() {
+      const text = document.getElementById("result").innerText;
+      navigator.clipboard.writeText(text).then(() => alert("Skopiowano wynik do schowka!"));
+    }
+
+    function resetForm() {
+      document.getElementById('category').selectedIndex = 0;
+      document.getElementById('goal').selectedIndex = 0;
+      adjustAttributionOptions();
+      document.getElementById('budget').value = '';
+      document.getElementById('start').value = '';
+      document.getElementById('end').value = '';
+      document.getElementById('result').innerText = '';
+    }
+
+    function calculate() {
+      const cat = document.getElementById('category').value;
+      const goal = document.getElementById('goal').value;
+      const attr = document.getElementById('attribution').value;
+      const budget = parseFloat(document.getElementById('budget').value);
+      const start = document.getElementById('start').value;
+      const end = document.getElementById('end').value;
+
+      if (!goal || !attr || !budget || !start || !end) {
+        document.getElementById('result').innerText = "⚠️ Wypełnij wszystkie pola.";
+        return;
+      }
+
+      const days = getDays(start, end);
+      const found = dataset.find(d =>
+        (d.kategoria === cat || d.kategoria === null) &&
+        d.cel === goal &&
+        d.atrybucja === attr
+      );
+
+      if (!found) {
+        document.getElementById('result').innerText = "❌ Brak danych dla wybranego zestawu.";
+        return;
+      }
+
+      const { cpc, cr, cpm, ctr } = found;
+      const clicks = Math.round(budget / cpc);
+      const impressions = Math.round(clicks / (ctr / 100));
+      let output = `Tryb: ${goal}
+Atrybucja: ${attr}
+Źródło danych: ${found.źródło}
+`;
+      output += `
+📅 Czas trwania kampanii: ${days} dni
+💰 Budżet: ${budget.toFixed(2)} zł
+`;
+
+      if (goal.includes("SALES")) {
+        const conversions = Math.round(clicks * cr);
+        const costPerConversion = conversions > 0 ? (budget / conversions).toFixed(2) : "brak danych";
+        output += `
+📈 Kliknięcia: ${clicks}
+🛒 Konwersje: ${conversions}
+💰 Koszt/konwersję: ${costPerConversion} zł`;
+      } else if (goal.includes("CLICK")) {
+        output += `
+📈 Kliknięcia: ${clicks}
+💰 CPC: ${cpc.toFixed(2)} zł`;
+      } else if (goal.includes("AWARENESS") || goal.includes("REACH")) {
+        output += `
+👀 Wyświetlenia: ${impressions}
+💰 CPM: ${cpm.toFixed(2)} zł
+📊 CTR: ${ctr.toFixed(2)}%`;
+      }
+
+      document.getElementById('result').innerText = output;
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
