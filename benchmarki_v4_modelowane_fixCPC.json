@@ -1,0 +1,82 @@
+[
+  {
+    "kategoria": "Dom i Ogród",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.33,
+    "cr": 0.018,
+    "cpm": 10.56,
+    "ctr": 3.39,
+    "źródło": "empik_verified"
+  },
+  {
+    "kategoria": "Zdrowie i Uroda",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.41,
+    "cr": 0.024,
+    "cpm": 11.45,
+    "ctr": 2.81,
+    "źródło": "empik_verified"
+  },
+  {
+    "kategoria": "AGD",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.51,
+    "cr": 0.021,
+    "cpm": 12.21,
+    "ctr": 1.18,
+    "źródło": "empik_verified"
+  },
+  {
+    "kategoria": "Dom i Ogród",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "7d_click",
+    "cpc": 0.33,
+    "cr": 0.028,
+    "cpm": 10.56,
+    "ctr": 3.39,
+    "źródło": "modelowane_na_podstawie_1d_click"
+  },
+  {
+    "kategoria": "Zdrowie i Uroda",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "7d_click",
+    "cpc": 0.41,
+    "cr": 0.039,
+    "cpm": 11.45,
+    "ctr": 2.81,
+    "źródło": "modelowane_na_podstawie_1d_click"
+  },
+  {
+    "kategoria": "AGD",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "7d_click",
+    "cpc": 0.51,
+    "cr": 0.032,
+    "cpm": 12.21,
+    "ctr": 1.18,
+    "źródło": "modelowane_na_podstawie_1d_click"
+  },
+  {
+    "kategoria": null,
+    "cel": "LINK_CLICKS",
+    "atrybucja": "1d_click",
+    "cpc": 0.32,
+    "cr": 0.02,
+    "cpm": 9.65,
+    "ctr": 3.25,
+    "źródło": "meta_global"
+  },
+  {
+    "kategoria": null,
+    "cel": "OUTCOME_AWARENESS",
+    "atrybucja": "1d_click",
+    "cpc": 0.85,
+    "cr": 0.02,
+    "cpm": 11.12,
+    "ctr": 1.56,
+    "źródło": "meta_global"
+  }
+]
