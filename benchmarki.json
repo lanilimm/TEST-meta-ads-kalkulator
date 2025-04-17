@@ -1,0 +1,192 @@
+[
+  {
+    "kategoria": "AGD",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.31593,
+    "cr": 0.02007,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Art.Pap",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.26315,
+    "cr": 0.02164,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Dom i Ogród",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.21661,
+    "cr": 0.01817,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Dziecko",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.65013,
+    "cr": 0.02897,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Elektronika",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.33479,
+    "cr": 0.01353,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Gaming i programy",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.63876,
+    "cr": 0.0234,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Inna",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 2.5546,
+    "cr": 0.00404,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Kolekcje własne",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 1.39341,
+    "cr": 0.03896,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Mix",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.35518,
+    "cr": 0.03426,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Muzyka",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.35214,
+    "cr": 0.029,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Sport",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.24829,
+    "cr": 0.01921,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Zabawki",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.24882,
+    "cr": 0.02134,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Zdrowie i Uroda",
+    "cel": "OUTCOME_SALES",
+    "atrybucja": "1d_click",
+    "cpc": 0.29738,
+    "cr": 0.02013,
+    "cpm": NaN,
+    "ctr": NaN,
+    "źródło": "verified"
+  },
+  {
+    "kategoria": "Inna",
+    "cel": "LINK_CLICKS",
+    "atrybucja": "7d_click_1d_view",
+    "cpc": 0.64623,
+    "cr": 0.72725,
+    "cpm": 8.64172,
+    "ctr": 1.47462,
+    "źródło": "meta_raw"
+  },
+  {
+    "kategoria": "Inna",
+    "cel": "LINK_CLICKS",
+    "atrybucja": "inne",
+    "cpc": 0.44277,
+    "cr": 1.0,
+    "cpm": 12.68378,
+    "ctr": 3.27208,
+    "źródło": "meta_raw"
+  },
+  {
+    "kategoria": "Inna",
+    "cel": "OUTCOME_AWARENESS",
+    "atrybucja": "1d_click",
+    "cpc": 2.67318,
+    "cr": 107.33358,
+    "cpm": 3.1129,
+    "ctr": 0.19703,
+    "źródło": "meta_raw"
+  },
+  {
+    "kategoria": "Inna",
+    "cel": "OUTCOME_AWARENESS",
+    "atrybucja": "7d_click_1d_view",
+    "cpc": 1.82752,
+    "cr": 453.05938,
+    "cpm": 1.68886,
+    "ctr": 0.10058,
+    "źródło": "meta_raw"
+  },
+  {
+    "kategoria": "Mix",
+    "cel": "LINK_CLICKS",
+    "atrybucja": "7d_click_1d_view",
+    "cpc": 0.53178,
+    "cr": 0.92868,
+    "cpm": 4.68221,
+    "ctr": 1.23254,
+    "źródło": "meta_raw"
+  },
+  {
+    "kategoria": "Supermarket",
+    "cel": "LINK_CLICKS",
+    "atrybucja": "7d_click_1d_view",
+    "cpc": 0.67982,
+    "cr": 0.50635,
+    "cpm": 10.56723,
+    "ctr": 2.10001,
+    "źródło": "meta_raw"
+  }
+]
